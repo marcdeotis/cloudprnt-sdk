@@ -66,8 +66,7 @@ namespace cputil
                         string filename = args[++i];
                         string outputfile = args[++i];
 
-                        Stream s = null;
-
+                        Stream s;
                         if (outputfile == "-" || outputfile == "" || outputfile == "[stdout]")
                             s = Console.OpenStandardOutput();
                         else
@@ -83,7 +82,6 @@ namespace cputil
                         Document.ConvertFile(filename, s, format, opts);
                         s.Close();
 
-                        Console.Error.WriteLine(String.Format("Wrote output to \"{0}\"", outputfile));
                         break;
 
                     case "printarea":
